@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #myModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="wallet1">Enter Wallet Address 1:</label>
+    <input type="text" id="wallet1" placeholder="Wallet Address 1">
+
+    <label for="wallet2">Enter Wallet Address 2:</label>
+    <input type="text" id="wallet2" placeholder="Wallet Address 2">
+
+    <label for="email">Enter Your Email:</label>
+    <input type="email" id="email" placeholder="Your Email">
+
+    <button onclick="showModal()">Next</button>
+
+    <!-- Modal -->
+    <div id="myModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Your Information:</h2>
+            <p id="wallet1Display"></p>
+            <p id="wallet2Display"></p>
+            <p id="emailDisplay"></p>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            const wallet1 = document.getElementById('wallet1').value;
+            const wallet2 = document.getElementById('wallet2').value;
+            const email = document.getElementById('email').value;
+
+            document.getElementById('wallet1Display').textContent = `Wallet Address 1: ${wallet1}`;
+            document.getElementById('wallet2Display').textContent = `Wallet Address 2: ${wallet2}`;
+            document.getElementById('emailDisplay').textContent = `Email: ${email}`;
+
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
